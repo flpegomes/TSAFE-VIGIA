@@ -2,6 +2,8 @@ import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import b64 from 'base-64';
 import RNGooglePlaces from 'react-native-google-places';
+import fogo from 'react-native-firebase';
+
 
 
 import {
@@ -89,13 +91,29 @@ const cadastroUsuarioErro = (erro, dispatch) => {
 
 export const autenticarUsuario = ({email, senha}) => {
     
-    return dispatch => {
-
+    return dispatch => {      
+      
         dispatch({type: LOADING_LOGIN})
-
         firebase.auth().signInWithEmailAndPassword(email, senha)
             .then(value => loginUsuarioSucesso(dispatch))
             .catch(erro => loginUsuarioErro(dispatch, erro));
+        FCM = fogo.messaging();
+        FCM.requestPermission();
+        FCM.getToken().then(token => {
+            let emailB64 = b64.encode(email)
+            return firebase.database().ref().child(`/usuarios`).child(emailB64)
+            .once('value')
+            .then(function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    firebase.database().ref(`/usuarios/${emailB64}/${childSnapshot.key}`)                
+                    .update({ pushToken: token })
+                    .then(console.log(token))
+                })
+            })
+            
+            
+        });
+        console.log(firebase);
     }
 }
 
