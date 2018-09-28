@@ -56,9 +56,9 @@ class Login extends Component {
                         <View style={styles.msgErroContainer}> 
                             <Text style={styles.msgErro}>{this.props.erroLogin} </Text> 
                         </View> 
-                        <TouchableHighlight onPress={() => Actions.Cadastro()}>
+                        {/* <TouchableHighlight onPress={() => Actions.Cadastro()}>
                             <Text style={styles.msgCadastro}>Ainda não tem cadastro? Cadastre-se</Text>
-                        </TouchableHighlight>
+                        </TouchableHighlight> */}
                         
                 </View>        
                 {this.renderBtnAcessar()}
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         backgroundColor: '#f9dc36',
-        borderRadius: 3,
+        borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center' ,
         height: 45
@@ -105,8 +105,8 @@ const styles = StyleSheet.create({
         height: 45,
         backgroundColor: '#444',
         marginTop: 10,
-        borderRadius: 3,
-        paddingHorizontal: 15,
+        borderRadius: 50,
+        paddingHorizontal: 25,
         color:'#fff'
           
     },

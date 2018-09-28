@@ -191,7 +191,7 @@ export const rondaFetch = () => {
     const { currentUser } = firebase.auth();
     return (dispatch) => {
         let emailUsuarioB64 = b64.encode(currentUser.email);
-        firebase.database().ref(`/usuario_pedidos/ZmVsaXBlMkB0c2FmZS5jb20uYnI=`)
+        firebase.database().ref(`/vigia_pedidos/${emailUsuarioB64}`)
             .on("value", snapshot => {
                 dispatch({ type: LISTA_RONDA, payload: snapshot.val() })
                 console.log(snapshot.val())

@@ -49,7 +49,6 @@ class Rondas extends Component {
         )}
         />
         <View style={styles.perfilContainer}>
-                <Text>Lista de rondas</Text>
                 <Button onPress={() => console.log(this.props.rondas)} title="opa"/>
             </View>
         </Fragment>

@@ -185,8 +185,8 @@ const styles = StyleSheet.create({
         height: 45,
         backgroundColor: '#444',
         marginTop: 10,
-        borderRadius: 3,
-        paddingHorizontal: 15,
+        borderRadius: 50,
+        paddingHorizontal: 25,
         color:'#fff'
     },
     msgErro: {
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         marginTop:10,
         backgroundColor: '#444',
-        borderRadius: 3,
+        borderRadius: 50,
     },
     inputSearch: {
         fontSize: 14,
